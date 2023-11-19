@@ -2,12 +2,8 @@
   (:domain llibres1)
   
   (:objects
-    llibre1 - no_te_predecesor
-    llibre2 - no_te_predecesor
-    llibre3 - no_te_predecesor
-    llibre4 - te_predecesor
-    llibre5 - no_te_predecesor
-    llibre6 - te_predecesor
+    llibre1 llibre2 llibre3 llibre5 - no_te_predecesor
+    llibre4 llibre6 - te_predecesor
   )
 
   (:init
