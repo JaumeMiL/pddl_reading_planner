@@ -2,26 +2,9 @@
   (:domain llibres_ext1)
   
   (:objects
-    llibre1 - no_te_predecesor
-    llibre2 - no_te_predecesor
-    llibre3 - no_te_predecesor
-    llibre4 - te_predecesor
-    llibre5 - no_te_predecesor
-    llibre6 - te_predecesor
-    llibre7 - no_te_predecesor
-    llibre8 - te_predecesor
-    gener - mes
-    febrer  - mes
-    març  - mes
-    abril  - mes
-    maig  - mes
-    juny  - mes
-    juliol  - mes
-    agost  - mes
-    setembre  - mes
-    octubre  - mes
-    novembre  - mes
-    desembre  - mes
+    llibre1 llibre2 llibre3 llibre5 llibre7 - no_te_predecesor
+    llibre4 llibre6 llibre8 - te_predecesor
+    gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
   )
 
   (:init
