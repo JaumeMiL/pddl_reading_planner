@@ -1,4 +1,3 @@
-
 (define (domain llibres1)
 (:requirements :strips :fluents :adl)
 
