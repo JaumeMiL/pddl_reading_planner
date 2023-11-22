@@ -1,30 +1,46 @@
 (define (domain llibres)
-(:requirements :strips :fluents :adl)
+    (:requirements :strips :fluents :adl)
 
-(:types  te_predecesor no_te_predecesor - llibre ) 
+    (:types  te_predecesor no_te_predecesor - llibre
+            mes - mes
+    )
 
-(:predicates
-(llegit ?x - llibre)
-(llibre_desitjat ?x - llibre)
-(predecesor ?x - no_te_predecesor ?y - te_predecesor) ;x es predecesor de y, x  no té predecesor ja que un llibre sol pot tenir un predecesor, per tant, si es predecesor d'un llibre no en pot tenir
-)
+    (:predicates
+        (llegit ?x - llibre)
+        (llibre_desitjat ?x - llibre)
+        (predecesor ?x - llibre ?y - llibre)
+        (mes_actual ?x - mes)
+        (mes_seguent ?x - mes ?y - mes) ;y es següent de x
+        (llegit_en_mes ?x - llibre ?y - mes)
+    )
 
-(:action llegir_llibre_desitjat_sense_predecesor ;llegeix un llibre desitjat que no té predecesor
-:parameters (?x - no_te_predecesor)
-:precondition (and (llibre_desitjat ?x) (not (llegit ?x)))
-:effect (llegit ?x)
-)
+    (:action llegir_llibre_desitjat_sense_predecesor
+        :parameters (?x - no_te_predecesor ?m - mes)
+        :precondition (and (llibre_desitjat ?x) (not (llegit ?x)) (mes_actual ?m))
+        :effect (and (llegit ?x) (llegit_en_mes ?x ?m))
+    )
 
-(:action llegir_llibre_desitjat_amb_predecesor ;llegeix un llibre desitjat que té predecesor
-:parameters (?l1 - te_predecesor ?l2 - no_te_predecesor)
-:precondition (and (llibre_desitjat ?l1) (not (llegit ?l1)) (llegit ?l2) (predecesor ?l2 ?l1))
-:effect (llegit ?l1)
-)
+    (:action llegir_llibre_desitjat_amb_predecesor
+        :parameters (?l1 - llibre ?m1 - mes ?l2 - llibre ?m2 - mes)
+        :precondition (and (llibre_desitjat ?l1) (not (llegit ?l1)) (llegit ?l2) (predecesor ?l2 ?l1) (llegit_en_mes ?l2 ?m2) (mes_actual ?m1)  (mes_seguent ?m2 ?m1))
+        :effect (and(llegit ?l1) (llegit_en_mes ?l1 ?m1))
+    )
 
-(:action llegir_llibre_predecesor_no_desitjat ;llegeix un llibre predecessor no desitjat quan es necessari per llegir-ne un de desitjat
-:parameters (?l1 - no_te_predecesor ?l2 - te_predecesor)
-:precondition (and (llibre_desitjat ?l2) (not (llibre_desitjat ?l1)) (not (llegit ?l1)) (not(llegit ?l2)) (predecesor ?l1 ?l2))
-:effect (llegit ?l1)
-)
+    (:action llegir_llibre_predecesor_no_desitjat_sense_predecesor
+        :parameters (?l1 - llibre ?m - mes ?l2 - llibre)
+        :precondition (and (llibre_desitjat ?l2) (not (llibre_desitjat ?l1)) (not (llegit ?l1)) (not (llegit ?l2)) (predecesor ?l1 ?l2) (mes_actual ?m))
+        :effect (and (llegit ?l1) (llegit_en_mes ?l1 ?m))
+    )
 
+    (:action llegir_llibre_predecesor_no_desitjat_amb_predecesor
+        :parameters (?l1 - llibre ?m - mes ?l2 - llibre)
+        :precondition (and (llibre_desitjat ?l2) (not (llibre_desitjat ?l1)) (not (llegit ?l1)) (not (llegit ?l2)) (predecesor ?l1 ?l2) (mes_actual ?m))
+        :effect (and (llegit ?l1) (llegit_en_mes ?l1 ?m)); PROBLEMA AQUÍ
+    )
+
+    (:action avancar_mes
+        :parameters (?m1 - mes ?m2 - mes)
+        :precondition (and (mes_actual ?m1) (mes_seguent ?m1 ?m2))
+        :effect (and (not (mes_actual ?m1)) (mes_actual ?m2)) 
+    )
 )
