@@ -1,0 +1,54 @@
+(define (domain llibres)
+    (:requirements :strips :fluents :adl)
+
+    (:types   llibre mes - objectes)
+
+
+    (:predicates
+        (llegit ?x - llibre)
+        (llibre_desitjat ?x - llibre)
+        (llibre_necessari ?x - llibre)
+        (mes_necessari ?m - mes)
+        (predecesor ?x - llibre ?y - llibre)
+        (mes_actual ?x - mes)
+        (mes_seguent ?x - mes ?y - mes) ;y es següent de x
+        (llegit_en_mes ?x - llibre ?y - mes)
+    )
+    
+    (:action llegir_llibre_desitjat
+        :parameters (?l - llibre ?m - mes)
+        :precondition (and (llibre_desitjat ?l) (mes_actual ?m) (not (llegit ?l))
+        (or (not (exists (?l2 - llibre) (predecesor ?l2 ?l))) 
+        (exists (?m2 - mes ?l2 - llibre) (and (predecesor ?l2 ?l) (llegit_en_mes ?l2 ?m2) (mes_seguent ?m2 ?m)))
+        )
+        )
+    
+        :effect (and (llegit ?l) (llegit_en_mes ?l ?m))
+    )
+    
+    (:action llegir_llibre_no_desitjat
+        :parameters (?l - llibre ?m - mes)
+        :precondition (and (llibre_necessari ?l) (mes_necessari ?m) (not (llegit ?l))
+        (or (not (exists (?l2 - llibre) (predecesor ?l2 ?l))) 
+        (exists (?m2 - mes ?l2 - llibre) (and (predecesor ?l2 ?l) (llegit_en_mes ?l2 ?m2) (mes_seguent ?m2 ?m)))
+        )
+        )
+    
+        :effect (and (llegit ?l) (llegit_en_mes ?l ?m))
+
+    
+    )
+    (:action auxiliar_llibres_no_desitjats
+        :parameters (?l2 - llibre ?m2 - mes)
+        :precondition (and (not (llibre_desitjat ?l2)) (not (llegit ?l2))
+        (exists(?l1 - llibre ?m1 - mes) (and (llibre_desitjat ?l1) (not (llegit ?l1)) (mes_seguent ?m2 ?m1) (predecesor ?l2 ?l1) (mes_actual ?m2))))
+        :effect (and (llibre_necessari ?l2) (mes_necessari ?m2))
+    )
+
+
+    (:action avancar_mes
+        :parameters (?m1 - mes ?m2 - mes)
+        :precondition (and (mes_actual ?m1) (mes_seguent ?m1 ?m2))
+        :effect (and (not (mes_actual ?m1)) (mes_actual ?m2)) 
+    )
+)
