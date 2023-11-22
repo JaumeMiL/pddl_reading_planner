@@ -1,4 +1,4 @@
-(define (problem problema_llibres1)
+(define (problem ext0_problema_1)
   (:domain llibres1)
   
   (:objects
