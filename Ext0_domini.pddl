@@ -1,4 +1,4 @@
-(define (domain llibres1)
+(define (domain llibres)
 (:requirements :strips :fluents :adl)
 
 (:types  te_predecesor no_te_predecesor - llibre ) 

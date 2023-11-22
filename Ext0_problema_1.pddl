@@ -1,5 +1,5 @@
 (define (problem ext0_problema_1)
-  (:domain llibres1)
+  (:domain llibres)
   
   (:objects
     llibre1 llibre2 llibre3 llibre5 - no_te_predecesor
