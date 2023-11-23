@@ -27,7 +27,7 @@
     (predecesor ronadallamallorquina3 ronadallamallorquina4)
     (predecesor ronadallamallorquina4 ronadallamallorquina5)
     (llibre_desitjat ronadallamallorquina1)
-    (llibre_desitjat ronadallamallorquina3)
+    (llibre_desitjat ronadallamallorquina2)
     (llibre_desitjat ronadallamallorquina5)
 
     ;Saga de Poesia: només volem llegir el primer
