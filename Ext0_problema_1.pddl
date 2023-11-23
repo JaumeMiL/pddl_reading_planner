@@ -39,8 +39,8 @@
     (llibre_desitjat poesia1)
 
     ;Saga de Nesbo: volem llegir el llibre
-    (not (llegit nesbo1))
-    (llibre_desitjat nesbo1)
+    (not (llegit nesbo))
+    (llibre_desitjat nesbo)
 
     ;mecanoscrit: no volem llegir el llibre
     (not (llegit mecanoscrit))
