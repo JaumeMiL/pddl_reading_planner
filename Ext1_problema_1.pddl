@@ -2,25 +2,38 @@
   (:domain llibres_ext1)
  
   (:objects
-    llibre1 llibre2 llibre3 llibre5 llibre7 - no_te_predecesor
-    llibre4 llibre6 llibre8 - te_predecesor
+    serp llangardaix sargantana tortuga covid grip hepatitis malaria - no_te_predecesor
+    reptils_expert malalties_expert - te_predecesor
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
   )
 
   (:init
-    (not (llegit llibre1))
-    (not (llegit llibre2))
-    (not (llegit llibre3))
-    (not (llegit llibre4))
-    (not (llegit llibre5))
-    (predecesor llibre2 llibre4)
-    (predecesor llibre4 llibre6)
-    (predecesor llibre6 llibre8)
-    (llibre_desitjat llibre4)
-    (llibre_desitjat llibre5)
-    (llibre_desitjat llibre6)
-    (llibre_desitjat llibre7)
-    (llibre_desitjat llibre8)
+
+    ;per llegir el llibre de reptils, primer s'han d'haver llegit tots els llibres de cada animal
+    (not (llegit sargantana))
+    (not (llegit serp))
+    (not (llegit llangardaix))
+    (not (llegit tortuga))
+    (predecesor serp reptils_expert)
+    (predecesor llangardaix reptils_expert)
+    (predecesor sargantana reptils_expert)
+    (predecesor tortuga reptils_expert)
+    (llibre_desitjat reptils_expert)
+
+    ;volem llegir malalties_expert però ja en sabem prou d'algunes malalties
+    (llegit covid)
+    (llegit grip)
+    (not (llegit hepatitis))
+    (not (llegit malaria))
+    (predecesor covid malalties_expert)
+    (predecesor grip malalties_expert)
+    (predecesor hepatitis malalties_expert)
+    (predecesor malaria malalties_expert)
+    (llibre_desitjat malalties_expert)
+
+    ;els altres casos més trivials es proven a l'extensió 0
+
+    ;mesos
     (mes_seguent gener febrer)
     (mes_seguent febrer març)
     (mes_seguent març abril)
