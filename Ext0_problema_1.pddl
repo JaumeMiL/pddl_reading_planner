@@ -1,26 +1,55 @@
-(define (problem ext1_problema_1)
+(define (problem ext0_problema_1)
   (:domain llibres)
  
   (:objects
-    llibre1 llibre2 llibre3 llibre5 llibre7 - no_te_predecesor
-    llibre4 llibre6 llibre8 - te_predecesor
+    pilarsterra1 rondallamallorquina1 poesia1 nesbo mecanoscrit placadiamant - no_te_predecesor
+    pilarsterra2 pilarsterra3 rondallamallorquina2 ronadallamallorquina3 ronadallamallorquina4 ronadallamallorquina5 poesia2 poesia3 - te_predecesor
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
   )
 
   (:init
-    (not (llegit llibre1))
-    (not (llegit llibre2))
-    (not (llegit llibre3))
-    (not (llegit llibre4))
-    (not (llegit llibre5))
-    (predecesor llibre2 llibre4)
-    (predecesor llibre4 llibre6)
-    (predecesor llibre6 llibre8)
-    (llibre_desitjat llibre4)
-    (llibre_desitjat llibre5)
-    (llibre_desitjat llibre6)
-    (llibre_desitjat llibre7)
-    (llibre_desitjat llibre8)
+    ;afegim la saga de pilars de la terra i ens volem llegir el segon llibre, hauria de llegir el primer i no el tercer
+    (not (llegit pilarsterra1))
+    (not (llegit pilarsterra2))
+    (not (llegit pilarsterra3))
+    (predecesor pilarsterra1 pilarsterra2)
+    (predecesor pilarsterra2 pilarsterra3)
+    (llibre_desitjat pilarsterra2)
+
+    ;volem llegir alguns dels llibres però d'altres si no són necessaris, no
+    (not (llegit ronadallamallorquina1))
+    (not (llegit ronadallamallorquina2))
+    (not (llegit ronadallamallorquina3))
+    (not (llegit ronadallamallorquina4))
+    (not (llegit ronadallamallorquina5))
+    (predecesor ronadallamallorquina1 ronadallamallorquina2)
+    (predecesor ronadallamallorquina2 ronadallamallorquina3)
+    (predecesor ronadallamallorquina3 ronadallamallorquina4)
+    (predecesor ronadallamallorquina4 ronadallamallorquina5)
+    (llibre_desitjat ronadallamallorquina1)
+    (llibre_desitjat ronadallamallorquina3)
+    (llibre_desitjat ronadallamallorquina5)
+
+    ;Saga de Poesia: només volem llegir el primer
+    (not (llegit poesia1))
+    (not (llegit poesia2))
+    (not (llegit poesia3))
+    (predecesor poesia1 poesia2)
+    (predecesor poesia2 poesia3)
+    (llibre_desitjat poesia1)
+
+    ;Saga de Nesbo: volem llegir el llibre
+    (not (llegit nesbo1))
+    (llibre_desitjat nesbo1)
+
+    ;mecanoscrit: no volem llegir el llibre
+    (not (llegit mecanoscrit))
+
+    ;placa diamant: volem llegir el llibre però ja el tenim llegit
+    (llegit placadiamant)
+    (llibre_desitjat placadiamant)
+
+    ;mesos
     (mes_seguent gener febrer)
     (mes_seguent febrer març)
     (mes_seguent març abril)

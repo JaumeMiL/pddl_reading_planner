@@ -37,14 +37,6 @@
     ;afegim un llibre que ni té predecessors ni volem llegir
     (not (llegit starwars1))
 
-    ;afegim la saga de pilars de la terra i ens volem llegir el segon llibre, hauria de llegir el primer i no el tercer
-    (not (llegit pilarsterra1))
-    (not (llegit pilarsterra2))
-    (not (llegit pilarsterra3))
-    (predecesor pilarsterra1 pilarsterra2)
-    (predecesor pilarsterra2 pilarsterra3)
-    (llibre_desitjat pilarsterra2)
-
     ;mesos
     (mes_seguent gener febrer)
     (mes_seguent febrer març)
