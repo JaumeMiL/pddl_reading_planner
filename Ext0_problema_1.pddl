@@ -3,7 +3,7 @@
  
   (:objects
     pilarsterra1 rondallamallorquina1 poesia1 nesbo mecanoscrit placadiamant - no_te_predecesor
-    pilarsterra2 pilarsterra3 rondallamallorquina2 ronadallamallorquina3 ronadallamallorquina4 ronadallamallorquina5 poesia2 poesia3 - te_predecesor
+    pilarsterra2 pilarsterra3 rondallamallorquina2 rondallamallorquina3 rondallamallorquina4 rondallamallorquina5 poesia2 poesia3 - te_predecesor
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
   )
 
@@ -17,18 +17,18 @@
     (llibre_desitjat pilarsterra2)
 
     ;volem llegir alguns dels llibres però d'altres si no són necessaris, no
-    (not (llegit ronadallamallorquina1))
-    (not (llegit ronadallamallorquina2))
-    (not (llegit ronadallamallorquina3))
-    (not (llegit ronadallamallorquina4))
-    (not (llegit ronadallamallorquina5))
-    (predecesor ronadallamallorquina1 ronadallamallorquina2)
-    (predecesor ronadallamallorquina2 ronadallamallorquina3)
-    (predecesor ronadallamallorquina3 ronadallamallorquina4)
-    (predecesor ronadallamallorquina4 ronadallamallorquina5)
-    (llibre_desitjat ronadallamallorquina1)
-    (llibre_desitjat ronadallamallorquina2)
-    (llibre_desitjat ronadallamallorquina5)
+    (not (llegit rondallamallorquina1))
+    (not (llegit rondallamallorquina2))
+    (not (llegit rondallamallorquina3))
+    (not (llegit rondallamallorquina4))
+    (not (llegit rondallamallorquina5))
+    (predecesor rondallamallorquina1 rondallamallorquina2)
+    (predecesor rondallamallorquina2 rondallamallorquina3)
+    (predecesor rondallamallorquina3 rondallamallorquina4)
+    (predecesor rondallamallorquina4 rondallamallorquina5)
+    (llibre_desitjat rondallamallorquina1)
+    (llibre_desitjat rondallamallorquina2)
+    (llibre_desitjat rondallamallorquina5)
 
     ;Saga de Poesia: només volem llegir el primer
     (not (llegit poesia1))
