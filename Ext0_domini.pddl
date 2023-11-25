@@ -1,46 +1,41 @@
 (define (domain llibres)
     (:requirements :strips :fluents :adl)
 
-    (:types  te_predecesor no_te_predecesor - llibre
-            mes - mes
-    )
+    (:types   llibre mes - objectes)
+
+    (:functions (posicio ?m - mes))
+
 
     (:predicates
         (llegit ?x - llibre)
+        (llegit_en_mes ?x - llibre ?y - mes)
         (llibre_desitjat ?x - llibre)
         (predecesor ?x - llibre ?y - llibre)
-        (mes_actual ?x - mes)
-        (mes_seguent ?x - mes ?y - mes) ;y es següent de x
-        (llegit_en_mes ?x - llibre ?y - mes)
+        (llegit_abans ?x - llibre)
+        
+    )
+     
+    (:action llibre_necessari
+        :parameters (?x - llibre)
+        :precondition (and (not (llibre_desitjat ?x)) 
+                        (exists (?y - llibre) (and (llibre_desitjat ?y) 
+                        (predecesor ?x ?y))))
+        :effect (and (llibre_desitjat ?x))
     )
 
-    (:action llegir_llibre_desitjat_sense_predecesor
-        :parameters (?x - no_te_predecesor ?m - mes)
-        :precondition (and (llibre_desitjat ?x) (not (llegit ?x)) (mes_actual ?m))
-        :effect (and (llegit ?x) (llegit_en_mes ?x ?m))
+
+
+    (:action llegir_llibre
+        :parameters (?x - llibre ?m - mes)
+        :precondition (and (llibre_desitjat ?x)
+                        (not (llegit ?x))
+                        (or (and (not (exists (?y - llibre) (predecesor ?y ?x))) (= (posicio ?m) 0)) 
+                            (exists (?y - llibre ?prev_m - mes) 
+                            (or (and (predecesor ?y ?x) (llegit_en_mes ?y ?prev_m) (= (posicio ?m) (+ (posicio ?prev_m) 1))) 
+                            (and (predecesor ?y ?x) (llegit_abans ?y) (= (posicio ?m) 0)))))) 
+        :effect (and (llegit_en_mes ?x ?m) (llegit ?x))
     )
 
-    (:action llegir_llibre_desitjat_amb_predecesor
-        :parameters (?l1 - llibre ?m1 - mes ?l2 - llibre ?m2 - mes)
-        :precondition (and (llibre_desitjat ?l1) (not (llegit ?l1)) (llegit ?l2) (predecesor ?l2 ?l1) (llegit_en_mes ?l2 ?m2) (mes_actual ?m1)  (mes_seguent ?m2 ?m1))
-        :effect (and(llegit ?l1) (llegit_en_mes ?l1 ?m1))
-    )
 
-    (:action llegir_llibre_predecesor_no_desitjat_sense_predecesor
-        :parameters (?l1 - llibre ?m - mes ?l2 - llibre)
-        :precondition (and (llibre_desitjat ?l2) (not (llibre_desitjat ?l1)) (not (llegit ?l1)) (not (llegit ?l2)) (predecesor ?l1 ?l2) (mes_actual ?m))
-        :effect (and (llegit ?l1) (llegit_en_mes ?l1 ?m))
-    )
 
-    (:action llegir_llibre_predecesor_no_desitjat_amb_predecesor
-        :parameters (?l1 - llibre ?m - mes ?l2 - llibre)
-        :precondition (and (llibre_desitjat ?l2) (not (llibre_desitjat ?l1)) (not (llegit ?l1)) (not (llegit ?l2)) (predecesor ?l1 ?l2) (mes_actual ?m))
-        :effect (and (llegit ?l1) (llegit_en_mes ?l1 ?m)); PROBLEMA AQUÍ
-    )
-
-    (:action avancar_mes
-        :parameters (?m1 - mes ?m2 - mes)
-        :precondition (and (mes_actual ?m1) (mes_seguent ?m1 ?m2))
-        :effect (and (not (mes_actual ?m1)) (mes_actual ?m2)) 
-    )
 )
