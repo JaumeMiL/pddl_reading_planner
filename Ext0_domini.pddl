@@ -1,4 +1,4 @@
-(define (domain llibres)
+(define (domain ext_0_domini)
     (:requirements :strips :fluents :adl)
 
     (:types   llibre mes - objectes)
