@@ -2,12 +2,25 @@
   (:domain llibres_ext1)
  
   (:objects
-    serp llangardaix sargantana tortuga covid grip hepatitis malaria - no_te_predecesor
-    reptils_expert malalties_expert - te_predecesor
+    serp llangardaix sargantana tortuga covid grip hepatitis malaria reptils_expert malalties_expert - llibre
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
   )
 
   (:init
+
+    ;mesos
+    (= (posicio gener) 0)
+    (= (posicio febrer) 1)
+    (= (posicio març) 2)
+    (= (posicio abril) 3)
+    (= (posicio maig) 4)
+    (= (posicio juny) 5)
+    (= (posicio juliol)6)
+    (= (posicio agost) 7)
+    (= (posicio setembre) 8)
+    (= (posicio octubre) 9)
+    (= (posicio novembre) 10)
+    (= (posicio desembre) 11)
 
     ;per llegir el llibre de reptils, primer s'han d'haver llegit tots els llibres de cada animal
     (not (llegit sargantana))
@@ -32,21 +45,6 @@
     (llibre_desitjat malalties_expert)
 
     ;els altres casos més trivials es proven a l'extensió 0
-
-    ;mesos
-    (mes_seguent gener febrer)
-    (mes_seguent febrer març)
-    (mes_seguent març abril)
-    (mes_seguent abril maig)
-    (mes_seguent maig juny)
-    (mes_seguent juny juliol)
-    (mes_seguent juliol agost)
-    (mes_seguent agost setembre)
-    (mes_seguent setembre octubre)
-    (mes_seguent octubre novembre)
-    (mes_seguent novembre desembre)
-    (mes_seguent desembre gener)
-    (mes_actual gener)
   )
 
   (:goal (forall (?llibre - llibre)
