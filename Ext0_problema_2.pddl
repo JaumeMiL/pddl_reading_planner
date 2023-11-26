@@ -1,5 +1,5 @@
 (define (problem ext0_problema_2)
-  (:domain llibres)
+  (:domain ext0_domini)
   
   (:objects
     harrypotter1 tintin1 starwars1 pilarsterra1 startrek1 harrypotter2 harrypotter3 harrypotter4 tintin2 pilarsterra2 pilarsterra3 startrek2 startrek3 - llibre

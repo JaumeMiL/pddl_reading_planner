@@ -1,5 +1,5 @@
 (define (problem ext1_problema_1)
-  (:domain llibres_ext1)
+  (:domain ext1_domini)
  
   (:objects
     serp llangardaix sargantana tortuga covid grip hepatitis malaria reptils_expert malalties_expert - llibre

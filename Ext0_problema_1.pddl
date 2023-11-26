@@ -1,5 +1,5 @@
 (define (problem ext0_problema_1)
-  (:domain llibres)
+  (:domain ext0_domini)
  
   (:objects
     pilarsterra1 rondallamallorquina1 poesia1 nesbo mecanoscrit placadiamant pilarsterra2 pilarsterra3 rondallamallorquina2 rondallamallorquina3 rondallamallorquina4 rondallamallorquina5 poesia2 poesia3 - llibre
