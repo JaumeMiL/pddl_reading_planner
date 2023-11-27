@@ -29,7 +29,7 @@
 
     ;cas complex amb diferents llibres entrellaçats (predecessors i paralels) entre si
 
-    (llegit mart)
+    (llegit_abans mart)
     (not (llegit terra))
     (not (llegit júpiter))
     (not (llegit neptú))
