@@ -1,10 +1,10 @@
 (define (domain ext2_domini)
     (:requirements :strips :fluents :adl)
 
-    (:types   llibre mes - objectes)
+    (:types llibre mes - objectes)
 
-    (:functions (posicio ?m - mes))
-
+    (:functions (posicio ?m - mes)
+                (pagines_llegides ?m - mes))
 
     (:predicates
         (llegit ?x - llibre)
@@ -13,7 +13,7 @@
         (predecesor ?x - llibre ?y - llibre)
         (llegit_abans ?x - llibre)
         (paralel ?x - llibre ?y - llibre)
-        
+        (limit_pagines ?m - mes)
     )
      
     (:action llibre_necessari
@@ -39,9 +39,13 @@
                                         (and (paralel ?y ?x) (llegit_abans ?y) (= (posicio ?m) 0)))
                                         )
                                         )))
-        :effect (and (llegit_en_mes ?x ?m) (llegit ?x))
+        :effect (and (llegit_en_mes ?x ?m) (llegit ?x) (increase (pagines_llegides ?m) (pagines_llibre ?x)))
     )
 
-
+    (:action limit_pagines_mes
+        :parameters (?m - mes)
+        :precondition (and (limit_pagines ?m) (>= (pagines_llegides ?m) 800))
+        :effect (not (limit_pagines ?m))
+    )
 
 )

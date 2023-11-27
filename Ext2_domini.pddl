@@ -1,7 +1,7 @@
 (define (domain ext2_domini)
     (:requirements :strips :fluents :adl)
 
-    (:types   llibre mes - objectes)
+    (:types llibre mes - objectes)
 
     (:functions (posicio ?m - mes))
 
