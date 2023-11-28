@@ -13,7 +13,6 @@
         (predecesor ?x - llibre ?y - llibre)
         (llegit_abans ?x - llibre)
         (paralel ?x - llibre ?y - llibre)
-
         
     )
 
@@ -33,12 +32,12 @@
         :precondition (and (llibre_desitjat ?x)
                             (not (llegit ?x))
                             (forall (?y - llibre) (or (not (predecesor ?y ?x)) (llegit ?y)))
-                            (forall (?z - llibre) (or (not (or(paralel ?x ?z) (paralel ?z ?x))) (llegit ?z)))
+                            (forall (?z - llibre) (or (not (paralel ?z ?x)) (llegit ?z)))
                             (or (= (posicio ?m) 0)
                                 (exists (?y - llibre ?prev_m - mes) 
                                     (or (and (predecesor ?y ?x)  (llegit_en_mes ?y ?prev_m) (= (posicio ?m) (+ (posicio ?prev_m) 1)))
-                                        (and (paralel ?y ?x)  (llegit_en_mes ?y ?prev_m) ( or(= (posicio ?m) (posicio ?prev_m)) (= (posicio ?m) (+ (posicio ?prev_m) 1))) )
-                                        (and (or (predecesor ?y ?x)  (paralel ?y ?x)) (llegit_abans ?y) (= (posicio ?m) 0))))))
+                                        (and (paralel ?y ?x)  (llegit_en_mes ?y ?prev_m)  (= (posicio ?m) (posicio ?prev_m)) )
+                                        (and (or (predecesor ?y ?x) (paralel ?y ?x)) (llegit_abans ?y) (= (posicio ?m) 0))))))
         :effect (and (llegit_en_mes ?x ?m) (llegit ?x))
     )
 
@@ -46,4 +45,3 @@
 
 
 )
-
