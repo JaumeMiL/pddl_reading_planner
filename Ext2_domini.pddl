@@ -13,7 +13,7 @@
         (predecesor ?x - llibre ?y - llibre)
         (llegit_abans ?x - llibre)
         (paralel ?x - llibre ?y - llibre)
-        (paralelitzat ?x - llibre ?y - llibre)
+
         
     )
 
