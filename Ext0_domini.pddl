@@ -36,7 +36,7 @@
         :effect (and (llegit_en_mes ?x ?m) (llegit ?x))
     )
 
-    (:action llegir_llibre_sense_predecesor
+    (:action llegir_llibre_sense_predecesor_o_precedit_per_un_llegit_abans
         :parameters (?x - llibre ?m - mes)
         :precondition (and (llibre_desitjat ?x)
                             (not (llegit ?x))
