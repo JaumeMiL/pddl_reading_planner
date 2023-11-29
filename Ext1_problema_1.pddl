@@ -2,7 +2,7 @@
   (:domain ext1_domini)
  
   (:objects
-    serp llangardaix sargantana tortuga covid grip hepatitis malaria reptils_expert malalties_expert - llibre
+    pitons serpblanca cobra escurco serp llangardaix sargantanapitiusa sargantana tortuga covid grip hepatitis malaria reptils_expert malalties_expert - llibre
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
   )
 
@@ -27,8 +27,20 @@
     (not (llegit serp))
     (not (llegit llangardaix))
     (not (llegit tortuga))
+    (not (llegit pitons))
+    (not (llegit serpblanca))
+    (llegit cobra)
+    (not (llegit escurco))
+    (not (llegit sargantanapitiusa))
+
+    (predecesor pitons serp)
+    (predecesor serpblanca serp)
+    (predecesor cobra serp)
+    (predecesor escurco serp)
+    (predecesor llangardaix sargantana)
+    (predecesor sargantanapitiusa sargantana)
+
     (predecesor serp reptils_expert)
-    (predecesor llangardaix reptils_expert)
     (predecesor sargantana reptils_expert)
     (predecesor tortuga reptils_expert)
     (llibre_desitjat reptils_expert)
