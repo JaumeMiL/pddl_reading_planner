@@ -78,6 +78,10 @@
     (paralel (eivissa centelles))
     (paralel (santantoni barcelona))
     (paralel (palma cervera))
+    (paralel (catalunya ferreries))
+    (paralel (centelles eivissa))
+    (paralel (barcelona santantoni))
+    (paralel (cervera palma))
 
     (llibre_desitjat alacant)
     (llibre_desitjat paisvalencia)
