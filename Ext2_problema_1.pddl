@@ -1,5 +1,5 @@
 (define (problem ext2_problema_1)
-  (:domain llibres)
+  (:domain ext2_domini)
 
  ;STARWARS ÉS PARALEL AMB STARTREK
 
