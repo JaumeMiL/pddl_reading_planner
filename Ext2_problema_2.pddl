@@ -3,7 +3,7 @@
 
   ;JOC DE PROVES COMPLEX AMB NOMS DE POBLES DELS PAÏSOS CATALANS
   (:objects
-    catalunya solsona figueres centelles barcelona cervera girona illesbalears ferreries eivissa santantoni palma mao arta paisvalencia alacant castello vinaros xativa gandia sagunt - llibre
+    catalunya solsona figueres centelles barcelona cervera girona illesbalears ferreries eivissa santantoni palma mao arta paisvalencia alacant castello vinaros xativa gandia sagunt provinciagirona provinciabarcelona provinciatarragona provincialleida provinciaalacant provinciacastello provinciavalencia provinciamallorca provinciamenorca proviniciaeivissa - llibre
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
   )
 
@@ -25,6 +25,17 @@
     (llegit arta)
     (llegit vinaros)
     (llegit cervera)
+
+    (not (llegit provinciagirona))
+    (not (llegit provinciabarcelona))
+    (not (llegit provinciatarragona))
+    (not (llegit provincialleida))
+    (not (llegit provinciaalacant))
+    (not (llegit provinciacastello))
+    (not (llegit provinciavalencia))
+    (not (llegit provinciamallorca))
+    (not (llegit provinciamenorca))
+    (not (llegit proviniciaeivissa))
 
     (not (llegit catalunya))
     (not (llegit solsona))
@@ -48,33 +59,45 @@
     (not (llegit sagunt))
 
 
-    (predecesor arta illesbalears)
-    (predecesor ferreries illesbalears)
-    (predecesor eivissa illesbalears)
-    (predecesor santantoni illesbalears)
-    (predecesor palma illesbalears)
-    (predecesor mao illesbalears)
+    (predecesor arta provinciamallorca)
+    (predecesor ferreries provinciamenorca)
+    (predecesor eivissa proviniciaeivissa)
+    (predecesor santantoni proviniciaeivissa)
+    (predecesor palma provinciamallorca)
+    (predecesor mao provinciamenorca)
 
-    (predecesor vinaros paisvalencia)
-    (predecesor alacant paisvalencia)
-    (predecesor castello paisvalencia)
-    (predecesor xativa paisvalencia)
-    (predecesor gandia paisvalencia)
-    (predecesor sagunt paisvalencia)
+    (predecesor vinaros provinciacastello)
+    (predecesor alacant provinciaalacant)
+    (predecesor castello provinciacastello)
+    (predecesor xativa provinciavalencia)
+    (predecesor gandia provinciavalencia)
+    (predecesor sagunt provinciacastello)
 
-    (predecesor cervera catalunya)
-    (predecesor solsona catalunya)
-    (predecesor figueres catalunya)
-    (predecesor centelles catalunya)
-    (predecesor barcelona catalunya)
-    (predecesor girona catalunya)
+    (predecesor cervera provincialleida)
+    (predecesor solsona provincialleida)
+    (predecesor figueres provinciagirona)
+    (predecesor centelles provinciabarcelona)
+    (predecesor barcelona provinciabarcelona)
+    (predecesor girona provinciagirona)
 
-    (paralel ferreries catalunya)
-    (paralel eivissa centelles)
+    (predecesor provinciagirona catalunya)
+    (predecesor provinciabarcelona catalunya)
+    (predecesor provinciatarragona catalunya)
+    (predecesor provincialleida catalunya)
+    (predecesor provinciaalacant paisvalencia)
+    (predecesor provinciacastello paisvalencia)
+    (predecesor provinciavalencia paisvalencia)
+    (predecesor provinciamallorca illesbalears)
+    (predecesor provinciamenorca illesbalears)
+    (predecesor proviniciaeivissa illesbalears)
+
+ 
+    (paralel centelles provinciagirona)
     (paralel santantoni barcelona)
-    (paralel palma cervera)
+    (paralel palma paisvalencia)
 
     (llibre_desitjat alacant)
+    (llibre_desitjat provinciacastello)
     (llibre_desitjat paisvalencia)
     (llibre_desitjat illesbalears)
     (llibre_desitjat catalunya)
