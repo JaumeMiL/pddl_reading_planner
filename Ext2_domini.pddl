@@ -1,4 +1,4 @@
-(define (domain ext2_domini)
+(define (domain llibres)
     (:requirements :strips :fluents :adl)
 
     (:types llibre mes - objectes)
@@ -26,22 +26,25 @@
 
 
 
-
-    (:action llegir_llibre
+    (:action llegir
         :parameters (?x - llibre ?m - mes)
-        :precondition (and (llibre_desitjat ?x)
-                            (not (llegit ?x))
-                            (forall (?y - llibre) (or (not (predecesor ?y ?x)) (llegit ?y)))
-                            (forall (?z - llibre) (or (not (paralel ?z ?x)) (llegit ?z)))
-                            (or (= (posicio ?m) 0)
-                                (exists (?y - llibre ?prev_m - mes) 
-                                    (or (and (predecesor ?y ?x)  (llegit_en_mes ?y ?prev_m) (= (posicio ?m) (+ (posicio ?prev_m) 1)))
-                                        (and (paralel ?y ?x)  (llegit_en_mes ?y ?prev_m)  (= (posicio ?m) (posicio ?prev_m)) )
-                                        (and (or (predecesor ?y ?x) (paralel ?y ?x)) (llegit_abans ?y) (= (posicio ?m) 0))))))
+          :precondition (and (llibre_desitjat ?x)
+                        (not (llegit ?x))
+                        (forall (?y - llibre) (or (not (predecesor ?y ?x)) (llegit ?y)))
+                        (forall (?y - llibre) (or (not (paralel ?y ?x)) (llegit ?y)))
+                        (forall (?y - llibre ?prev_m - mes) 
+                                (or (not (predecesor ?y ?x)) 
+                                    (not (llegit_en_mes ?y ?prev_m)) 
+                                    (< (posicio ?prev_m) (posicio ?m))))
+                        (forall (?y - llibre ?par_m - mes) 
+                               (or (not (paralel ?x ?y)) 
+                                   (llegit ?y) 
+                                   (or (= (posicio ?par_m) (posicio ?m))
+                                       (< (posicio ?par_m) (posicio ?m))
+                                       (> (posicio ?par_m) (posicio ?m))
+                                   )))
+                        )
+        
         :effect (and (llegit_en_mes ?x ?m) (llegit ?x))
     )
-
-
-
-
 )

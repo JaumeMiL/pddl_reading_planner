@@ -1,5 +1,5 @@
 (define (problem ext2_problema_1)
-  (:domain ext2_domini)
+  (:domain llibres)
 
  ;STARWARS ÉS PARALEL AMB STARTREK
 
@@ -8,7 +8,7 @@
  ;EL SOL ÉS UN PREDECESOR DE ESTRELES I PLUTÓ ÉS UN PREDECESOR DE PLANETOIDES 
 
   (:objects
-    planetes estrelles planetoides terra mart júpiter neptú plutó sol - llibre
+    planetes estrelles planetoides terra mart jupiter neptu pluto sol - llibre
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
   )
 
@@ -29,32 +29,27 @@
 
     ;cas complex amb diferents llibres entrellaçats (predecessors i paralels) entre si
 
-    (llegit mart)
     (not (llegit terra))
-    (not (llegit júpiter))
-    (not (llegit neptú))
+    (not (llegit jupiter))
+    (not (llegit neptu))
 
     (not (llegit sol))
 
-    (not (llegit plutó))
+    (not (llegit pluto))
 
     (not (llegit planetes))
     (not (llegit estrelles))
     (not (llegit planetoides))
 
-    (predecesor terra planetes)
-    (predecesor mart planetes)
-    (predecesor júpiter planetes)
-    (predecesor neptú planetes)
-    (predecesor sol estrelles)
-    (predecesor plutó planetoides)
+    (predecesor planetes terra)
+    (predecesor terra pluto)
+    (predecesor pluto jupiter)
 
-    (paralel mart terra)
-    (paralel júpiter terra)
-    (paralel neptú terra)
+
+    (paralel jupiter planetoides)
 
     (paralel estrelles planetes)
-    (paralel planetoides planetes)
+    (predecesor neptu planetoides)
 
     (llibre_desitjat planetoides)
 

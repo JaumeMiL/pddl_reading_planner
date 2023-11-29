@@ -22,9 +22,9 @@
     (= (posicio novembre) 10)
     (= (posicio desembre) 11)
 
-    (llegit_abans arta)
-    (llegit_abans vinaros)
-    (llegit_abans cervera)
+    (llegit arta)
+    (llegit vinaros)
+    (llegit cervera)
 
     (not (llegit catalunya))
     (not (llegit solsona))
