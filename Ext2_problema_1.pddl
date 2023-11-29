@@ -43,6 +43,9 @@
     (not (llegit planetoides))
 
     (predecesor terra planetes)
+    (predecesor mart planetes)
+    (predecesor júpiter planetes)
+    (predecesor neptú planetes)
     (predecesor sol estrelles)
     (predecesor plutó planetoides)
 
