@@ -31,12 +31,12 @@
                             (not(llegit_abans ?x))
                             (not (exists (?y - llibre) (and (predecesor ?y ?x) (not (llegit ?y)))))
                             (exists (?y - llibre ?prev_m - mes) 
-                                (or (and (predecesor ?y ?x) (llegit_en_mes ?y ?prev_m) (> (posicio ?m) (posicio ?prev_m))) 
-                                (and (predecesor ?y ?x) (llegit_abans ?y) (= (posicio ?m) 0)))))
+                                (and (predecesor ?y ?x) (llegit_en_mes ?y ?prev_m) (> (posicio ?m) (posicio ?prev_m))) 
+                            )  )
         :effect (and (llegit_en_mes ?x ?m) (llegit ?x))
     )
 
-    (:action llegir_llibre_sense_predecesor_o_precedit_per_llibre_llegit_abans
+    (:action llegir_llibre_sense_predecesor
         :parameters (?x - llibre ?m - mes)
         :precondition (and (llibre_desitjat ?x)
                             (not (llegit ?x))
@@ -51,4 +51,5 @@
         :effect (and (llegit_en_mes ?x ?m) (llegit ?x))
     )
 )
+
 
