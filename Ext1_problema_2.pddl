@@ -1,5 +1,5 @@
 (define (problem ext1_problema_1)
-  (:domain ext1_domini_prova)
+  (:domain ext1_domini)
  
 
  ;IMAGINEM QUE ELS SEGÜENTS LLIBRES SERVEIXEN PER ENTENDRE INDIVIDUALMENT EL FUNCIONAMENT DE CADA DISPOSITIU
