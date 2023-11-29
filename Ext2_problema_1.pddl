@@ -1,14 +1,7 @@
 (define (problem ext2_problema_1)
   (:domain ext2_domini)
-
- ;STARWARS ÉS PARALEL AMB STARTREK
-
- ;ELS DIFERENS PLANETES SÓN PARALELS DEL LLIBRE TERRA, QUE ÉS EL PREDECESOR DE PLANETES
- ;PLANETOIDES I ESTRELLES SÓN LLIBRES PARALELS DE PLANETES
- ;EL SOL ÉS UN PREDECESOR DE ESTRELES I PLUTÓ ÉS UN PREDECESOR DE PLANETOIDES 
-
   (:objects
-    planetes estrelles planetoides terra mart jupiter neptu pluto sol - llibre
+    Harry_Potter_1 Harry_Potter_2 Harry_Potter_3 Harry_Potter_4 Harry_Potter_5 Star_Wars_1 Star_Wars_2 Star_Wars_3 - llibre
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
   )
 
@@ -20,39 +13,34 @@
     (= (posicio abril) 3)
     (= (posicio maig) 4)
     (= (posicio juny) 5)
-    (= (posicio juliol)6)
+    (= (posicio juliol) 6)
     (= (posicio agost) 7)
     (= (posicio setembre) 8)
     (= (posicio octubre) 9)
     (= (posicio novembre) 10)
     (= (posicio desembre) 11)
 
-    ;cas complex amb diferents llibres entrellaçats (predecessors i paralels) entre si
+    ; Predecesors
+    (predecesor Harry_Potter_1 Harry_Potter_2)
+    (predecesor Harry_Potter_2 Harry_Potter_3)
+    (predecesor Harry_Potter_3 Harry_Potter_4)
+    (predecesor Harry_Potter_4 Harry_Potter_5)
+    (predecesor Star_Wars_1 Star_Wars_2)
+    (predecesor Star_Wars_2 Star_Wars_3)
+    (paralel Star_Wars_1 Harry_Potter_5)
 
-    (not (llegit terra))
-    (not (llegit jupiter))
-    (not (llegit neptu))
-
-    (not (llegit sol))
-
-    (not (llegit pluto))
-
-    (not (llegit planetes))
-    (not (llegit estrelles))
-    (not (llegit planetoides))
-
-    (predecesor planetes terra)
-    (predecesor terra pluto)
-    (predecesor pluto jupiter)
+    (llegit Harry_Potter_1)
+    (not (llegit Harry_Potter_2))
+    (not (llegit Harry_Potter_3))
+    (not (llegit Harry_Potter_4))
+    (not (llegit Harry_Potter_5))
+    (not (llegit Star_Wars_1))
+    (not (llegit Star_Wars_2))
+    (not (llegit Star_Wars_3))
 
 
-    (paralel jupiter planetoides)
-
-    (paralel estrelles planetes)
-    (predecesor neptu planetoides)
-
-    (llibre_desitjat planetoides)
-
+    (llibre_desitjat Harry_Potter_4)
+    (llibre_desitjat Star_Wars_3)
   )
 
   (:goal (forall (?llibre - llibre)

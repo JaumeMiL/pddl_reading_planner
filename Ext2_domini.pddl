@@ -26,21 +26,30 @@
 
 
 
-(:action llegir
-    :parameters (?x - llibre ?m - mes)
-    :precondition (and (llibre_desitjat ?x)
+    (:action llegir
+        :parameters (?x - llibre ?m - mes)
+          :precondition (and (llibre_desitjat ?x)
                         (not (llegit ?x))
                         (forall (?y - llibre) (or (not (predecesor ?y ?x)) (llegit ?y)))
+                        (forall (?y - llibre) (or (not (paralel ?y ?x)) (llegit ?y)))
                         (forall (?y - llibre ?prev_m - mes) 
                                 (or (not (predecesor ?y ?x)) 
                                     (not (llegit_en_mes ?y ?prev_m)) 
                                     (< (posicio ?prev_m) (posicio ?m))))
                         (forall (?y - llibre ?par_m - mes) 
-                                (or (not (paralel ?x ?y)) 
-                                    (llegit ?y) 
-                                    (or (= (posicio ?par_m) (posicio ?m))
-                                        (= (+ (posicio ?par_m) 1) (posicio ?m))
-                                        (= (- (posicio ?par_m) 1) (posicio ?m))))))
-    :effect (and (llegit_en_mes ?x ?m) (llegit ?x))
-)
+                               (or (not (paralel ?x ?y)) 
+                                   (llegit ?y) 
+                                   (or (= (posicio ?par_m) (posicio ?m))
+                                       (< (posicio ?par_m) (posicio ?m))
+                                       (> (posicio ?par_m) (posicio ?m))
+                                   )))
+                        )
+        
+        :effect (and (llegit_en_mes ?x ?m) (llegit ?x))
+    )
+
+
+
+
+
 )
