@@ -3,7 +3,7 @@
 
   ;JOC DE PROVES COMPLEX AMB NOMS DE POBLES DELS PAÏSOS CATALANS
   (:objects
-    catalunya solsona figueres centelles barcelona cervera girona illesbalears ferreries eivissa santantoni palma mao arta paisvalencia alacant castello vinaros xativa gandia sagunt paisoscatalans - llibre
+    catalunya solsona figueres centelles barcelona cervera girona illesbalears ferreries eivissa santantoni palma mao arta paisvalencia alacant castello vinaros xativa gandia sagunt - llibre
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
   )
 
@@ -74,13 +74,16 @@
     (predecessor (illesbalears paisoscatalans))
     (predecessor (paisvalencia paisoscatalans))
 
-    (paralel (ferreries figueres))
+    (paralel (ferreries catalunya))
     (paralel (eivissa centelles))
     (paralel (santantoni barcelona))
     (paralel (palma cervera))
 
     (llibre_desitjat alacant)
-    (llibre_desitjat paisoscatalans)
+    (llibre_desitjat paisvalencia)
+    (llibre_desitjat illesbalears)
+    (llibre_desitjat catalunya)
+
   )
 
   (:goal (forall (?llibre - llibre)
