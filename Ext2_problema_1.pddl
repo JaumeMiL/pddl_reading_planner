@@ -1,49 +1,53 @@
-(define (problem ext2_problema_1)
-  (:domain ext2_domini)
+(define (problem Problema_nou) 
+  (:domain prova_nou_domini)
   (:objects
-    Harry_Potter_1 Harry_Potter_2 Harry_Potter_3 Harry_Potter_4 Harry_Potter_5 Star_Wars_1 Star_Wars_2 Star_Wars_3 - llibre
-    gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
-  )
+  Harry_Potter_1
+  Harry_Potter_2
+  Harry_Potter_3
+  Harry_Potter_4
+  Harry_Potter_5
+  Star_Wars_1
+  Star_Wars_2
+  Star_Wars_3
+  - llibre
+  gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
+)
 
-  (:init
-    ;mesos
-    (= (posicio gener) 0)
-    (= (posicio febrer) 1)
-    (= (posicio març) 2)
-    (= (posicio abril) 3)
-    (= (posicio maig) 4)
-    (= (posicio juny) 5)
-    (= (posicio juliol) 6)
-    (= (posicio agost) 7)
-    (= (posicio setembre) 8)
-    (= (posicio octubre) 9)
-    (= (posicio novembre) 10)
-    (= (posicio desembre) 11)
-
+(:init
+  ; Mes
+  (mes_actual gener)
+  (mes_seguent gener febrer) 
+  (mes_seguent febrer març)
+  (mes_seguent març abril)
+  (mes_seguent abril maig)
+  (mes_seguent maig juny)
+  (mes_seguent juny juliol)
+  (mes_seguent juliol agost)
+  (mes_seguent agost setembre)
+  (mes_seguent setembre octubre)
+  (mes_seguent octubre novembre)
+  (mes_seguent novembre desembre)
     ; Predecesors
-    (predecesor Harry_Potter_1 Harry_Potter_2)
-    (predecesor Harry_Potter_2 Harry_Potter_3)
-    (predecesor Harry_Potter_3 Harry_Potter_4)
-    (predecesor Harry_Potter_4 Harry_Potter_5)
-    (predecesor Star_Wars_1 Star_Wars_2)
-    (predecesor Star_Wars_2 Star_Wars_3)
+    (predecesor Harry_Potter_5 Harry_Potter_4)
+    (predecesor Harry_Potter_4 Harry_Potter_3)
+    (predecesor Harry_Potter_3 Harry_Potter_2)
+    (predecesor Harry_Potter_2 Harry_Potter_1)
+    (predecesor Star_Wars_3 Star_Wars_2)
+    (predecesor Star_Wars_2 Star_Wars_1)
     (paralel Star_Wars_1 Harry_Potter_5)
+    (paralel Harry_Potter_5 Star_Wars_1)
 
+    ; Llibres que ja hem llegit
     (llegit Harry_Potter_1)
-    (not (llegit Harry_Potter_2))
-    (not (llegit Harry_Potter_3))
-    (not (llegit Harry_Potter_4))
-    (not (llegit Harry_Potter_5))
-    (not (llegit Star_Wars_1))
-    (not (llegit Star_Wars_2))
-    (not (llegit Star_Wars_3))
-
-
+    ; Llibres que desitgem llegir
     (llibre_desitjat Harry_Potter_4)
     (llibre_desitjat Star_Wars_3)
-  )
+)
 
-  (:goal (forall (?llibre - llibre)
-             (or (not (llibre_desitjat ?llibre))
-                 (llegit ?llibre))))
+(:goal (and
+    (llegit Harry_Potter_4)
+    (llegit Star_Wars_3)
+	)
+)
+
 )
