@@ -1,5 +1,5 @@
 (define (domain ext2_domini)
-  (:requirements :strips :adl)
+  (:requirements :strips :adl :typing)
   (:types llibre mes - object)      
 
   (:predicates
