@@ -1,15 +1,7 @@
-(define (problem Problema_nou) 
-  (:domain prova_nou_domini)
+(define (problem ext2_problema_1) 
+  (:domain ext2_domini)
   (:objects
-  Harry_Potter_1
-  Harry_Potter_2
-  Harry_Potter_3
-  Harry_Potter_4
-  Harry_Potter_5
-  Star_Wars_1
-  Star_Wars_2
-  Star_Wars_3
-  - llibre
+  agathachristie1 agathachristie2 agathachristie3 agathachristie4 agathachristie5 kenfollet1 kenfollet2 kenfollet3 - llibre
   gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
 )
 
@@ -28,26 +20,26 @@
   (mes_seguent octubre novembre)
   (mes_seguent novembre desembre)
     ; Predecesors
-    (predecesor Harry_Potter_5 Harry_Potter_4)
-    (predecesor Harry_Potter_4 Harry_Potter_3)
-    (predecesor Harry_Potter_3 Harry_Potter_2)
-    (predecesor Harry_Potter_2 Harry_Potter_1)
-    (predecesor Star_Wars_3 Star_Wars_2)
-    (predecesor Star_Wars_2 Star_Wars_1)
-    (paralel Star_Wars_1 Harry_Potter_5)
-    (paralel Harry_Potter_5 Star_Wars_1)
+
+    (predecesor agathachristie1 agathachristie2)
+    (predecesor agathachristie2 agathachristie3)
+    (predecesor agathachristie3 agathachristie4)
+    (predecesor agathachristie4 agathachristie5)
+
+    (predecesor kenfollet1 kenfollet2)
+    (predecesor kenfollet2 kenfollet3)
+    
+    (paralel kenfollet1 agathachristie5)
+    (paralel agathachristie5 kenfollet1)
 
     ; Llibres que ja hem llegit
-    (llegit Harry_Potter_1)
+    (llegit agathachristie1)
     ; Llibres que desitgem llegir
-    (llibre_desitjat Harry_Potter_4)
-    (llibre_desitjat Star_Wars_3)
+    (llibre_desitjat agathachristie4)
+    (llibre_desitjat kenfollet3)
 )
 
-(:goal (and
-    (llegit Harry_Potter_4)
-    (llegit Star_Wars_3)
-	)
-)
-
+  (:goal (forall (?llibre - llibre)
+             (or (not (llibre_desitjat ?llibre))
+                 (llegit ?llibre))))
 )

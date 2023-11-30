@@ -1,51 +1,45 @@
 (define (domain ext3_domini)
-    (:requirements :strips :fluents :adl)
+  (:requirements :strips :adl :typing)
+  (:types llibre mes - object)
+  
+  (:functions
+    (pagines ?l - llibre)
+    (pag_llegides ?m - mes)
+  )      
 
-    (:types llibre mes - objectes)
+  (:predicates
+   (llegit ?l - llibre)
+   (llegint ?l - llibre)
+   (llegint_mes_anterior ?l - llibre)
+   (mes_seguent ?m1 - mes ?m2 - mes)
+   (mes_actual ?m - mes)
+   (llibre_desitjat ?l - llibre)
+   (predecesor ?lp - llibre ?l1 - llibre)
+   (paralel ?l1 - llibre ?l2 - llibre)  
+  )
 
-    (:functions (posicio ?m - mes)
-                (pagines_llegides ?m - mes))
-
-    (:predicates
-        (llegit ?x - llibre)
-        (llegit_en_mes ?x - llibre ?y - mes)
-        (llibre_desitjat ?x - llibre)
-        (predecesor ?x - llibre ?y - llibre)
-        (llegit_abans ?x - llibre)
-        (paralel ?x - llibre ?y - llibre)
-        (limit_pagines ?m - mes)
+  (:action llegir
+    :parameters (?l - llibre ?m - mes)
+    :precondition (and (mes_actual ?m) (not (or (llegint ?l) (llegit ?l) (llegint_mes_anterior ?l)))
+	  (not (exists (?p - llibre) (and (predecesor ?p ?l) (not (or (llegit ?p) (llegint_mes_anterior ?p))))))
+      (<= (+ (pagines ?l) (pag_llegides ?m)) 800)
+      )
+      
+    :effect (and 
+      (llegint ?l) 
+      (increase (pag_llegides ?m) (pagines ?l))
     )
-     
-    (:action llibre_necessari
-        :parameters (?x - llibre)
-        :precondition (and (not (llibre_desitjat ?x)) 
-                        (exists (?y - llibre) (and (llibre_desitjat ?y) 
-                        (predecesor ?x ?y))))
-        :effect (llibre_desitjat ?x)
+  )
+  
+  (:action avancar_de_mes
+    :parameters (?m - mes ?m2 - mes)
+    :precondition (and (mes_actual ?m) (mes_seguent ?m ?m2) (not (exists (?l - llibre)
+    (and (llegint_mes_anterior ?l) (exists (?p - llibre) (and (paralel ?l ?p) (not (or (llegint ?p) (llegint_mes_anterior ?p) (llegit ?p)))))))))  
+    
+    :effect (and (not (mes_actual ?m)) (mes_actual ?m2) 
+	  (forall (?l - llibre) (when (llegint_mes_anterior ?l) (and (not (llegint_mes_anterior ?l))(llegit ?l))))
+	  (forall (?l - llibre)
+	  (when (llegint ?l)(and (not (llegint ?l)) (llegint_mes_anterior ?l))))
     )
-
-
-    (:action llegir_llibre
-        :parameters (?x - llibre ?m - mes)
-        :precondition (and (llibre_desitjat ?x)
-                            (not (llegit ?x))
-                            (or (not (exists (?y - llibre) (or (paralel ?y ?x) (predecesor ?y ?x)))) 
-                                (not (exists (?y - llibre) (or (and (predecesor ?y ?x) (not (llegit ?y))) (and (paralel ?y ?x)(not (llegit ?y)))))))
-                            (or (= (posicio ?m) 0)
-                                (exists (?y - llibre ?m2 - mes) 
-                                    (or (or (and (predecesor ?y ?x) (llegit_en_mes ?y ?m2) (= (posicio ?m) (+ (posicio ?m2) 1))) 
-                                        (and (predecesor ?y ?x) (llegit_abans ?y) (= (posicio ?m) 0))) 
-                                        (or (and (paralel ?y ?x) (llegit_en_mes ?y ?m2) (or (= (posicio ?m) (+ (posicio ?m2) 1)) (= (posicio ?m) (posicio ?m2))) ) 
-                                        (and (paralel ?y ?x) (llegit_abans ?y) (= (posicio ?m) 0)))
-                                        )
-                                        )))
-        :effect (and (llegit_en_mes ?x ?m) (llegit ?x) (increase (pagines_llegides ?m) (pagines_llibre ?x)))
-    )
-
-    (:action limit_pagines_mes
-        :parameters (?m - mes)
-        :precondition (and (limit_pagines ?m) (>= (pagines_llegides ?m) 800))
-        :effect (not (limit_pagines ?m))
-    )
-
+  )
 )

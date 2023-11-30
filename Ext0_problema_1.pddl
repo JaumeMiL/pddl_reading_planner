@@ -22,6 +22,9 @@
     (= (posicio novembre) 10)
     (= (posicio desembre) 11)
 
+
+    
+
     ;afegim la saga de pilars de la terra i ens volem llegir el segon llibre, hauria de llegir el primer i no el tercer
     (not (llegit pilarsterra1))
     (not (llegit pilarsterra2))

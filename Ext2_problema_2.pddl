@@ -9,18 +9,18 @@
 
   (:init
     ; POSICIONS DELS MESOS
-    (= (posicio gener) 0)
-    (= (posicio febrer) 1)
-    (= (posicio març) 2)
-    (= (posicio abril) 3)
-    (= (posicio maig) 4)
-    (= (posicio juny) 5)
-    (= (posicio juliol) 6)
-    (= (posicio agost) 7)
-    (= (posicio setembre) 8)
-    (= (posicio octubre) 9)
-    (= (posicio novembre) 10)
-    (= (posicio desembre) 11)
+  (mes_actual gener)
+  (mes_seguent gener febrer) 
+  (mes_seguent febrer març)
+  (mes_seguent març abril)
+  (mes_seguent abril maig)
+  (mes_seguent maig juny)
+  (mes_seguent juny juliol)
+  (mes_seguent juliol agost)
+  (mes_seguent agost setembre)
+  (mes_seguent setembre octubre)
+  (mes_seguent octubre novembre)
+  (mes_seguent novembre desembre)
 
     (llegit arta)
     (llegit vinaros)
@@ -92,12 +92,11 @@
     (predecesor proviniciaeivissa illesbalears)
 
  
-    (paralel centelles provinciagirona)
-    (paralel santantoni barcelona)
-    (paralel palma paisvalencia)
+    (paralel catalunya arta)
+    (paralel arta catalunya)
+    (paralel provinciaalacant illesbalears)
+    (paralel illesbalears provinciaalacant)
 
-    (llibre_desitjat alacant)
-    (llibre_desitjat provinciacastello)
     (llibre_desitjat paisvalencia)
     (llibre_desitjat illesbalears)
     (llibre_desitjat catalunya)
