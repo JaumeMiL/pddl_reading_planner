@@ -1,10 +1,9 @@
 (define (problem ext1_problema_1)
   (:domain ext1_domini)
- 
 
- ;IMAGINEM QUE ELS SEGÜENTS LLIBRES SERVEIXEN PER ENTENDRE INDIVIDUALMENT EL FUNCIONAMENT DE CADA DISPOSITIU
- ;I GLOBALMENT PER ENTENDRE EL FUNCIONAMENT DE TOTS ELS DISPOSITIUS. SENSE ENTENDRE INDIVIDUALMENT EL FUNCIONAMENT 
- ;DE CADA DISPOSITIU NO ES POT ENTENDRE EL FUNCIONAMENT DE TOTS ELS DISPOSITIUS 
+  ;IMAGINEM QUE ELS SEGÜENTS LLIBRES SERVEIXEN PER ENTENDRE INDIVIDUALMENT EL FUNCIONAMENT DE CADA DISPOSITIU
+  ;I GLOBALMENT PER ENTENDRE EL FUNCIONAMENT DE TOTS ELS DISPOSITIUS. SENSE ENTENDRE INDIVIDUALMENT EL FUNCIONAMENT 
+  ;DE CADA DISPOSITIU NO ES POT ENTENDRE EL FUNCIONAMENT DE TOTS ELS DISPOSITIUS 
   (:objects
     iphone galaxy huaweiphone macbook zenbook chromebook samsungtv appletv googletv telefons portatils televisors dispositius - llibre
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
@@ -27,7 +26,7 @@
 
     ;mesos pel nou domini
     (mes_actual gener)
-    (mes_seguent gener febrer) 
+    (mes_seguent gener febrer)
     (mes_seguent febrer març)
     (mes_seguent març abril)
     (mes_seguent abril maig)
@@ -71,11 +70,13 @@
     (predecesor televisors dispositius)
 
     (llibre_desitjat dispositius)
-    
-  
+
   )
 
-  (:goal (forall (?llibre - llibre)
-             (or (not (llibre_desitjat ?llibre))
-                 (llegit ?llibre))))
+  (:goal
+    (forall
+      (?llibre - llibre)
+      (or (not (llibre_desitjat ?llibre))
+        (llegit ?llibre)))
+  )
 )

@@ -1,6 +1,6 @@
 (define (problem ext0_problema_2)
   (:domain ext0_domini)
-  
+
   (:objects
     harrypotter1 tintin1 starwars1 pilarsterra1 startrek1 harrypotter2 harrypotter3 harrypotter4 tintin2 pilarsterra2 pilarsterra3 startrek2 startrek3 - llibre
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
@@ -23,7 +23,7 @@
 
     ;mesos pel nou domini
     (mes_actual gener)
-    (mes_seguent gener febrer) 
+    (mes_seguent gener febrer)
     (mes_seguent febrer març)
     (mes_seguent març abril)
     (mes_seguent abril maig)
@@ -34,7 +34,6 @@
     (mes_seguent setembre octubre)
     (mes_seguent octubre novembre)
     (mes_seguent novembre desembre)
-
 
     ;volem llegir els tres llibres de star trek
     (not (llegit startrek1))
@@ -52,7 +51,6 @@
     (predecesor harrypotter2 harrypotter3)
     (predecesor harrypotter3 harrypotter4)
     (llibre_desitjat harrypotter4)
-  
 
     ;ens volem llegir només el primer de tintin per tant no hauria de llegir el segon
     (not (llegit tintin1))
@@ -71,10 +69,12 @@
     (predecesor pilarsterra2 pilarsterra3)
     (llibre_desitjat pilarsterra2)
 
-
   )
-  
-  (:goal (forall (?llibre - llibre)
-             (or (not (llibre_desitjat ?llibre))
-                 (llegit ?llibre))))
+
+  (:goal
+    (forall
+      (?llibre - llibre)
+      (or (not (llibre_desitjat ?llibre))
+        (llegit ?llibre)))
+  )
 )

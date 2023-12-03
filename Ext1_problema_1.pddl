@@ -1,6 +1,6 @@
 (define (problem ext1_problema_1)
   (:domain ext1_domini)
- 
+
   (:objects
     pitons serpblanca cobra escurco serp llangardaix sargantanapitiusa sargantana tortuga covid grip hepatitis malaria reptils_expert malalties_expert - llibre
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
@@ -24,7 +24,7 @@
 
     ;mesos pel nou domini
     (mes_actual gener)
-    (mes_seguent gener febrer) 
+    (mes_seguent gener febrer)
     (mes_seguent febrer març)
     (mes_seguent març abril)
     (mes_seguent abril maig)
@@ -73,7 +73,10 @@
     ;els altres casos més trivials es proven a l'extensió 0
   )
 
-  (:goal (forall (?llibre - llibre)
-             (or (not (llibre_desitjat ?llibre))
-                 (llegit ?llibre))))
+  (:goal
+    (forall
+      (?llibre - llibre)
+      (or (not (llibre_desitjat ?llibre))
+        (llegit ?llibre)))
+  )
 )

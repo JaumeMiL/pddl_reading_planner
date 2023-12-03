@@ -1,6 +1,6 @@
 (define (problem ext0_problema_1)
   (:domain ext0_domini)
- 
+
   (:objects
     pilarsterra1 rondallamallorquina1 poesia1 nesbo mecanoscrit placadiamant pilarsterra2 pilarsterra3 rondallamallorquina2 rondallamallorquina3 rondallamallorquina4 rondallamallorquina5 poesia2 poesia3 - llibre
     gener febrer març abril maig juny juliol agost setembre octubre novembre desembre - mes
@@ -24,7 +24,7 @@
 
     ;mesos pel nou domini
     (mes_actual gener)
-    (mes_seguent gener febrer) 
+    (mes_seguent gener febrer)
     (mes_seguent febrer març)
     (mes_seguent març abril)
     (mes_seguent abril maig)
@@ -77,10 +77,12 @@
     (llegit placadiamant)
     (llibre_desitjat placadiamant)
 
-  
   )
 
-  (:goal (forall (?llibre - llibre)
-             (or (not (llibre_desitjat ?llibre))
-                 (llegit ?llibre))))
+  (:goal
+    (forall
+      (?llibre - llibre)
+      (or (not (llibre_desitjat ?llibre))
+        (llegit ?llibre)))
+  )
 )

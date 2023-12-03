@@ -9,18 +9,18 @@
 
   (:init
     ; POSICIONS DELS MESOS
-  (mes_actual gener)
-  (mes_seguent gener febrer) 
-  (mes_seguent febrer març)
-  (mes_seguent març abril)
-  (mes_seguent abril maig)
-  (mes_seguent maig juny)
-  (mes_seguent juny juliol)
-  (mes_seguent juliol agost)
-  (mes_seguent agost setembre)
-  (mes_seguent setembre octubre)
-  (mes_seguent octubre novembre)
-  (mes_seguent novembre desembre)
+    (mes_actual gener)
+    (mes_seguent gener febrer)
+    (mes_seguent febrer març)
+    (mes_seguent març abril)
+    (mes_seguent abril maig)
+    (mes_seguent maig juny)
+    (mes_seguent juny juliol)
+    (mes_seguent juliol agost)
+    (mes_seguent agost setembre)
+    (mes_seguent setembre octubre)
+    (mes_seguent octubre novembre)
+    (mes_seguent novembre desembre)
 
     (llegit arta)
     (llegit vinaros)
@@ -50,14 +50,13 @@
     (not (llegit santantoni))
     (not (llegit palma))
     (not (llegit mao))
-    
+
     (not (llegit paisvalencia))
     (not (llegit alacant))
     (not (llegit castello))
     (not (llegit xativa))
     (not (llegit gandia))
     (not (llegit sagunt))
-
 
     (predecesor arta provinciamallorca)
     (predecesor ferreries provinciamenorca)
@@ -91,7 +90,6 @@
     (predecesor provinciamenorca illesbalears)
     (predecesor proviniciaeivissa illesbalears)
 
- 
     (paralel catalunya arta)
     (paralel arta catalunya)
     (paralel provinciaalacant illesbalears)
@@ -103,8 +101,10 @@
 
   )
 
-  (:goal (forall (?llibre - llibre)
-             (or (not (llibre_desitjat ?llibre))
-                 (llegit ?llibre))))
+  (:goal
+    (forall
+      (?llibre - llibre)
+      (or (not (llibre_desitjat ?llibre))
+        (llegit ?llibre)))
+  )
 )
-
