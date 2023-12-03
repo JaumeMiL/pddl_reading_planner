@@ -12,6 +12,8 @@
         (llibre_desitjat ?x - llibre)
         (predecesor ?x - llibre ?y - llibre)
         (llegit_abans ?x - llibre)
+        (mes_actual ?m - mes)
+        (mes_seguent ?m1 - mes ?m2 - mes)
         
     )
      

@@ -11,6 +11,8 @@
         (llegit_en_mes ?x - llibre ?y - mes)
         (llibre_desitjat ?x - llibre)
         (predecesor ?x - llibre ?y - llibre)
+        (mes_actual ?m - mes)
+        (mes_seguent ?m1 - mes ?m2 - mes)
         
     )
      
@@ -34,8 +36,4 @@
                                     (< (posicio ?prev_m) (posicio ?m)))))
         :effect (and (llegit_en_mes ?x ?m) (llegit ?x))
     )
-
-    
-
-
 )

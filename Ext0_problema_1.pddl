@@ -22,8 +22,19 @@
     (= (posicio novembre) 10)
     (= (posicio desembre) 11)
 
-
-    
+    ;mesos pel nou domini
+    (mes_actual gener)
+    (mes_seguent gener febrer) 
+    (mes_seguent febrer març)
+    (mes_seguent març abril)
+    (mes_seguent abril maig)
+    (mes_seguent maig juny)
+    (mes_seguent juny juliol)
+    (mes_seguent juliol agost)
+    (mes_seguent agost setembre)
+    (mes_seguent setembre octubre)
+    (mes_seguent octubre novembre)
+    (mes_seguent novembre desembre)
 
     ;afegim la saga de pilars de la terra i ens volem llegir el segon llibre, hauria de llegir el primer i no el tercer
     (not (llegit pilarsterra1))
