@@ -50,20 +50,11 @@
             (forall
                 (?l - llibre)
                 (when
-                    (llegint_mes_anterior ?l)
+                    (or (llegint_mes_anterior ?l) (llegint ?l))
                     (and
                         (llegit ?l)
                         (not (llegint_mes_anterior ?l))
-                    )
-                )
-            )
-            (forall
-                (?l - llibre)
-                (when
-                    (llegint ?l)
-                    (and
                         (not (llegint ?l))
-                        (llegint_mes_anterior ?l)
                     )
                 )
             )

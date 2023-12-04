@@ -24,14 +24,13 @@
             (not (llegit ?l))
             (not (llegint_mes_anterior ?l))
             (not (llegint ?l))
-            (not (exists
-                    (?p - llibre) ;no existeix predecesor no llegit
-                    (and
-                        (predecesor ?p ?l)
-                        (not (llegit ?p))
-                        (not (llegint_mes_anterior ?p))
-                    )
-                ))
+            (not (exists (?p - llibre) ;no existeix predecesor no llegit
+                (and
+                    (predecesor ?p ?l)
+                    (not (llegit ?p))
+                    (not (llegint_mes_anterior ?p))
+                )
+            ))
         )
         :effect (and
             (llegint ?l)
@@ -47,23 +46,12 @@
         :effect (and
             (not (mes_actual ?m))
             (mes_actual ?m2)
-            (forall
-                (?l - llibre)
-                (when
-                    (llegint_mes_anterior ?l)
+            (forall (?l - llibre)
+                (when (or (llegint_mes_anterior ?l) (llegint ?l))
                     (and
                         (llegit ?l)
                         (not (llegint_mes_anterior ?l))
-                    )
-                )
-            )
-            (forall
-                (?l - llibre)
-                (when
-                    (llegint ?l)
-                    (and
                         (not (llegint ?l))
-                        (llegint_mes_anterior ?l)
                     )
                 )
             )
