@@ -47,6 +47,7 @@
 
     ;ens hem llegit el primer llibre de harry potter i volem llegir el quart
     (llegit harrypotter1)
+    (llegit_abans harrypotter1)
     (predecesor harrypotter1 harrypotter2)
     (predecesor harrypotter2 harrypotter3)
     (predecesor harrypotter3 harrypotter4)
